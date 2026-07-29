@@ -108,6 +108,17 @@ function setupFilters() {
   const chips = document.querySelectorAll(".filter-chip");
   const active = new Set();
 
+  function applyFilters() {
+    if (active.size === 0) {
+      renderResources(RESOURCES);
+      return;
+    }
+    const filtered = RESOURCES.filter(r =>
+      r.tags.some(t => active.has(t))
+    );
+    renderResources(filtered);
+  }
+
   chips.forEach(chip => {
     chip.addEventListener("click", () => {
       const tag = chip.dataset.tag;
@@ -118,17 +129,22 @@ function setupFilters() {
         active.add(tag);
         chip.classList.add("active");
       }
-
-      if (active.size === 0) {
-        renderResources(RESOURCES);
-        return;
-      }
-      const filtered = RESOURCES.filter(r =>
-        r.tags.some(t => active.has(t))
-      );
-      renderResources(filtered);
+      applyFilters();
     });
   });
+
+  // Support incoming links like resources.html?tag=AI%20literacy
+  // so other pages can deep-link into a pre-filtered view.
+  const params = new URLSearchParams(window.location.search);
+  const incomingTag = params.get("tag");
+  if (incomingTag) {
+    const matchingChip = Array.from(chips).find(c => c.dataset.tag === incomingTag);
+    if (matchingChip) {
+      active.add(incomingTag);
+      matchingChip.classList.add("active");
+      applyFilters();
+    }
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
