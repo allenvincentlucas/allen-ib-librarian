@@ -9,7 +9,7 @@ ib-librarian-hub/
 ├── index.html              ← Home (§01) — DONE
 ├── resources.html          ← Resource Library (§02) — DONE
 ├── ai-literacy.html        ← Information & AI Literacy (§03) — DONE
-├── programme.html          ← §04 — not yet built
+├── programme.html          ← IB Programme Support Hub (§04) — DONE
 ├── tools.html              ← §05 — NEXT
 ├── collaboration.html      ← §06 — not yet built
 ├── reading-culture.html    ← §07 — not yet built
@@ -74,7 +74,10 @@ root folder, via Settings → Pages.
       resources.js also supports `?tag=X` URL params so other pages can deep-link into
       a pre-filtered view (e.g. `resources.html?tag=AI literacy`).
 - [x] Phase 3 (partial): AI Literacy (§03) — built, links into Resource Library via
-      tag deep-links. Programme (§04), Tools (§05), Impact (§09) still to come.
+      tag deep-links. Programme (§04) — built, same deep-link pattern for
+      DP/MYP/PYP/CP. Note: no resources are tagged "CP" yet in resources.js, so
+      that filter currently shows the empty state — add a CP-tagged resource
+      when one's ready. Tools (§05), Impact (§09) still to come.
 - [ ] Phase 4: Network page + newsletter signup (Google Form → Sheet is the
       fastest MVP for both — no backend build required)
 - [ ] Phase 5: About/Terms, responsiveness + accessibility pass, SEO
