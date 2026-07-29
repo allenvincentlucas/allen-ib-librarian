@@ -14,8 +14,8 @@ async function loadPartial(url, slotId) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  await loadPartial('/partials/nav.html', 'nav-slot');
-  await loadPartial('/partials/footer.html', 'footer-slot');
+  await loadPartial('partials/nav.html', 'nav-slot');
+  await loadPartial('partials/footer.html', 'footer-slot');
 
   const current = document.body.dataset.page;
   if (current) {
