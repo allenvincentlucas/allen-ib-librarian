@@ -7,10 +7,10 @@ Portfolio + resource hub for IB librarians. Static site, built for GitHub Pages.
 ```
 ib-librarian-hub/
 ├── index.html              ← Home (§01) — DONE
-├── resources.html          ← Resource Library (§02) — NEXT
+├── resources.html          ← Resource Library (§02) — DONE
 ├── ai-literacy.html        ← §03 — not yet built
 ├── programme.html          ← §04 — not yet built
-├── tools.html              ← §05 — not yet built
+├── tools.html              ← §05 — NEXT
 ├── collaboration.html      ← §06 — not yet built
 ├── reading-culture.html    ← §07 — not yet built
 ├── network.html            ← §08 — not yet built
@@ -21,7 +21,10 @@ ib-librarian-hub/
 │   └── footer.html          ← shared footer, injected via include.js
 └── assets/
     ├── css/style.css        ← brand tokens + shared component styles
-    └── js/include.js        ← loads nav/footer partials, highlights active tab
+    └── js/
+        ├── include.js        ← loads nav/footer partials, highlights active tab
+        └── resources.js       ← Resource Library data + filter logic (hardcoded
+                                  array for now — see Phase 2 note below)
 ```
 
 ## How the shell works
@@ -33,8 +36,13 @@ one nav to maintain instead of nine copies. Each page needs:
 <div id="nav-slot"></div>
 ...page content...
 <div id="footer-slot"></div>
-<script src="/assets/js/include.js"></script>
+<script src="assets/js/include.js"></script>
 ```
+
+Paths are relative (no leading slash) since this is a GitHub *project* page
+(served under `/allen-ib-librarian/`, not domain root) — an earlier version
+used absolute paths and broke styling/nav on the live site. Keep new pages
+consistent with this.
 
 Set `data-page="..."` on `<body>` (matching a `data-page` value in `nav.html`)
 to auto-highlight the current tab.
@@ -51,9 +59,10 @@ python3 -m http.server 8000
 
 ## Deploying
 
-1. Push this folder to a GitHub repo (e.g. `ib-librarian-hub`)
-2. Settings → Pages → deploy from `main` branch, root folder
-3. Site will be live at `https://<username>.github.io/ib-librarian-hub/`
+Live at: **https://allenvincentlucas.github.io/allen-ib-librarian/**
+
+Repo: `allenvincentlucas/allen-ib-librarian`, deployed from `main` branch,
+root folder, via Settings → Pages.
 
 ## Build sequence (from planning)
 
