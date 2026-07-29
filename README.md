@@ -8,7 +8,7 @@ Portfolio + resource hub for IB librarians. Static site, built for GitHub Pages.
 ib-librarian-hub/
 ├── index.html              ← Home (§01) — DONE
 ├── resources.html          ← Resource Library (§02) — DONE
-├── ai-literacy.html        ← §03 — not yet built
+├── ai-literacy.html        ← Information & AI Literacy (§03) — DONE
 ├── programme.html          ← §04 — not yet built
 ├── tools.html              ← §05 — NEXT
 ├── collaboration.html      ← §06 — not yet built
@@ -71,7 +71,10 @@ root folder, via Settings → Pages.
       filter chips, and 8 placeholder resources. Download links are "#" placeholders —
       swap in real files as they're ready. To upgrade to Airtable later: replace the
       RESOURCES array in resources.js with an async fetch, keeping the same field names.
-- [ ] Phase 3: Tools for Librarians → IB Programme → AI Literacy → Impact
+      resources.js also supports `?tag=X` URL params so other pages can deep-link into
+      a pre-filtered view (e.g. `resources.html?tag=AI literacy`).
+- [x] Phase 3 (partial): AI Literacy (§03) — built, links into Resource Library via
+      tag deep-links. Programme (§04), Tools (§05), Impact (§09) still to come.
 - [ ] Phase 4: Network page + newsletter signup (Google Form → Sheet is the
       fastest MVP for both — no backend build required)
 - [ ] Phase 5: About/Terms, responsiveness + accessibility pass, SEO
