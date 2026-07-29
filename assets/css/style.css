@@ -1,0 +1,142 @@
+/* =========================================================
+   IB Librarian Hub — Shared Brand Stylesheet
+   Tokens: Paper / Ink / Index Blue / Stone
+   Type: Space Grotesk (display) / Inter (body) / JetBrains Mono (labels)
+   ========================================================= */
+
+:root{
+  --paper:#FAF9F6;
+  --paper-dim:#F1EFE8;
+  --ink:#191B1F;
+  --index-blue:#2A4B8D;
+  --stone:#84806F;
+  --card-border: rgba(25,27,31,0.28);
+
+  --font-display:'Space Grotesk', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{ font-family:var(--font-display); font-weight:600; }
+.mono{ font-family:var(--font-mono); }
+a{ color:var(--index-blue); }
+
+/* ---------- Layout shell ---------- */
+.wrap{ max-width:1180px; margin:0 auto; padding:0 24px; }
+
+/* ---------- Drawer-tab nav (shared across all pages) ---------- */
+.drawer-rail{
+  position:sticky; top:0; z-index:50;
+  background:var(--paper);
+  border-bottom:1px solid var(--card-border);
+}
+.drawer-rail .rail-inner{
+  max-width:1180px; margin:0 auto;
+  display:flex; align-items:center;
+  overflow-x:auto;
+  padding:0 24px;
+}
+.rail-brand{
+  font-family:var(--font-display); font-weight:700; font-size:15px;
+  padding:14px 20px 14px 0; white-space:nowrap;
+  border-right:1px solid var(--card-border); margin-right:4px;
+  text-decoration:none; color:var(--ink);
+}
+.rail-brand span{ color:var(--index-blue); }
+.tab{
+  flex:0 0 auto;
+  font-family:var(--font-mono); font-size:11px; letter-spacing:0.03em;
+  color:var(--stone); text-decoration:none;
+  padding:14px 14px;
+  border-right:1px dashed var(--card-border);
+  white-space:nowrap;
+  transition:background .15s ease, color .15s ease;
+}
+.tab:hover{ background:var(--paper-dim); color:var(--ink); }
+.tab b{ color:var(--index-blue); font-weight:700; }
+.tab.active{ background:var(--paper-dim); color:var(--ink); }
+
+/* ---------- Catalog card section shell (reused every page) ---------- */
+section.card-section{ max-width:1180px; margin:56px auto; padding:0 24px; }
+.catalog-card{
+  position:relative; background:var(--paper);
+  border:1.5px dashed var(--card-border); border-radius:2px;
+  padding:40px 44px 36px;
+}
+.catalog-card::before{
+  content:""; position:absolute; top:18px; left:18px;
+  width:8px; height:8px; border-radius:50%;
+  background:var(--paper); border:1.5px solid var(--card-border);
+}
+.card-tab{
+  position:absolute; top:-13px; left:40px;
+  background:var(--index-blue); color:var(--paper);
+  font-family:var(--font-mono); font-size:11px; font-weight:700;
+  letter-spacing:0.04em; padding:5px 12px;
+}
+.card-head{
+  display:flex; justify-content:space-between; align-items:baseline;
+  flex-wrap:wrap; gap:8px; margin:8px 0 6px 24px;
+  border-bottom:1px solid var(--card-border); padding-bottom:14px;
+}
+.card-head h2{ font-size:26px; }
+.card-head .callno{ font-family:var(--font-mono); font-size:12px; color:var(--stone); }
+.card-sub{ margin:14px 0 22px 24px; color:var(--stone); font-size:14px; max-width:640px; }
+
+/* ---------- Grid / block system ---------- */
+.grid{ display:grid; gap:16px; margin-left:24px; }
+.grid.cols-2{ grid-template-columns:1fr 1fr; }
+.grid.cols-3{ grid-template-columns:repeat(3,1fr); }
+.grid.cols-4{ grid-template-columns:repeat(4,1fr); }
+@media(max-width:800px){ .grid.cols-2,.grid.cols-3,.grid.cols-4{ grid-template-columns:1fr; } }
+
+.block{
+  border:1px solid var(--card-border); background:var(--paper-dim);
+  padding:16px 18px; min-height:64px; font-size:13px; color:var(--ink);
+}
+.block .tag{
+  display:inline-block; font-family:var(--font-mono); font-size:10px;
+  font-weight:700; color:var(--index-blue); letter-spacing:0.05em; margin-bottom:6px;
+}
+.block.hero{
+  min-height:200px; background:var(--paper); border:1.5px solid var(--ink);
+  display:flex; flex-direction:column; justify-content:center; gap:8px;
+}
+.block.hero p{ font-size:15px; color:var(--ink); }
+.block.cta{
+  background:var(--index-blue); border-color:var(--index-blue); color:var(--paper);
+  text-decoration:none; display:block; transition:opacity .15s ease;
+}
+.block.cta:hover{ opacity:0.9; }
+.block.cta .tag{ color:var(--paper); opacity:0.8; }
+
+.filter-chip{
+  display:inline-block; font-family:var(--font-mono); font-size:10px;
+  border:1px solid var(--card-border); padding:4px 9px; margin:2px 4px 2px 0;
+  color:var(--stone); background:none; cursor:pointer;
+}
+.filter-chip:hover, .filter-chip.active{ border-color:var(--index-blue); color:var(--index-blue); }
+
+.badge{
+  display:inline-block; background:var(--ink); color:var(--paper);
+  font-family:var(--font-mono); font-size:10px; padding:3px 8px;
+  margin-left:8px; vertical-align:middle;
+}
+
+/* ---------- Footer ---------- */
+footer.site-footer{
+  max-width:1180px; margin:80px auto 40px; padding:24px;
+  border-top:1px solid var(--card-border);
+  font-family:var(--font-mono); font-size:11px; color:var(--stone);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+}
+footer.site-footer a{ color:var(--stone); }
