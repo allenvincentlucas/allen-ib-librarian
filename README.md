@@ -58,8 +58,10 @@ python3 -m http.server 8000
 ## Build sequence (from planning)
 
 - [x] Phase 1: shell (nav/footer/CSS) + Home
-- [ ] Phase 2: Resource Library — decide data source first (hardcoded JSON vs.
-      Airtable-fed), build filter/tag logic, populate with 5–10 real resources
+- [x] Phase 2: Resource Library — built with hardcoded data (assets/js/resources.js),
+      filter chips, and 8 placeholder resources. Download links are "#" placeholders —
+      swap in real files as they're ready. To upgrade to Airtable later: replace the
+      RESOURCES array in resources.js with an async fetch, keeping the same field names.
 - [ ] Phase 3: Tools for Librarians → IB Programme → AI Literacy → Impact
 - [ ] Phase 4: Network page + newsletter signup (Google Form → Sheet is the
       fastest MVP for both — no backend build required)
